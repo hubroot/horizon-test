@@ -39,7 +39,7 @@
           </div>
           <div class="form-group">
             <label for="photo">Photo</label>
-            <input if="photo" type="file" class="form-control">
+            <input if="photo" type="file" class="form-control" />
             <span class="form-text text-muted">Any photo format</span>
           </div>
           <div class="form-group">
@@ -89,6 +89,28 @@
 </template>
 
 <script>
+import * as VueFire from 'vuefire'
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+Vue.use(VueFire)
+
+var firebaseConfig = {
+  apiKey: 'AIzaSyC5l-k6j7bFUreJhdyEXiwTfeZoRjLJ-iU',
+  authDomain: 'horizon-fc1c9.firebaseapp.com',
+  databaseURL: 'https://horizon-fc1c9.firebaseio.com',
+  projectId: 'horizon-fc1c9',
+  storageBucket: 'horizon-fc1c9.appspot.com',
+  messagingSenderId: '354530515268',
+  appId: '1:354530515268:web:a5b0d6ef2b435608c61f11'
+}
+
+firebase.initializeApp({
+  projectId: firebaseConfig.projectId,
+  databaseURL: firebaseConfig.databaseURL
+})
+
+let db = firebase.firestore()
+
 export default {
   name: 'form'
 }
