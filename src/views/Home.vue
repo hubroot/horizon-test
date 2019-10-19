@@ -2,18 +2,24 @@
   <div class="home">
     <h1 class="my-4">Home</h1>
     <div class="row">
-      <div class="col">
+      <div class="col-12 col-sm-6">
         <div class="card text-center">
           <div class="card-body">
             <h5 class="card-title">Total employees</h5>
+            <div class="spinner-border spinner-border-sm" role="status" v-show="totalEmployees === null">
+              <span class="sr-only">Loading...</span>
+            </div>
             <p class="card-text">{{ totalEmployees }}</p>
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col-12 col-sm-6 mt-1 mt-sm-0">
         <div class="card text-center">
           <div class="card-body">
             <h5 class="card-title">New employees</h5>
+            <div class="spinner-border spinner-border-sm" role="status" v-show="newEmployees === null">
+              <span class="sr-only">Loading...</span>
+            </div>
             <p class="card-text">{{ newEmployees }}</p>
           </div>
         </div>
@@ -30,8 +36,8 @@ export default {
 
   data() {
     return {
-      totalEmployees: '-',
-      newEmployees: '-'
+      totalEmployees: null,
+      newEmployees: null
     }
   },
 
@@ -41,7 +47,7 @@ export default {
     this.totalEmployees = querySnapshot.size
 
     const date = new Date()
-    date.setHours(0,0,0,0);
+    date.setHours(0, 0, 0, 0)
 
     querySnapshot = await firestore
       .collection('employees')

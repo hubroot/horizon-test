@@ -85,22 +85,22 @@
         <table class="table table-stripped table-bordered">
           <thead>
             <tr>
-              <th>Created at</th>
-              <th>Photo</th>
+              <th class="d-none d-lg-table-cell">Created at</th>
+              <th class="d-none d-lg-table-cell">Photo</th>
               <th>Name</th>
-              <th>Phone</th>
-              <th>Email Address</th>
+              <th class="d-none d-sm-table-cell">Phone</th>
+              <th class="d-none d-md-table-cell">Email Address</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="(employee, counter) in employees" :key="counter">
-              <td>{{ employee.created_at | humanize }}</td>
-              <td class="photo">
+              <td class="d-none d-lg-table-cell">{{ employee.created_at | humanize }}</td>
+              <td class="photo d-none d-lg-table-cell">
                 <img class="rounded" v-if="employee.photo" :src="employee.photo" />
               </td>
               <td>{{ employee.name }}</td>
-              <td>{{ employee.phone }}</td>
-              <td>{{ employee.email }}</td>
+              <td class="d-none d-sm-table-cell">{{ employee.phone }}</td>
+              <td class="d-none d-md-table-cell">{{ employee.email }}</td>
             </tr>
           </tbody>
         </table>
