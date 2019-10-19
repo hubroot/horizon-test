@@ -3,26 +3,26 @@ import VueRouter from 'vue-router'
 
 import Home from '../views/Home.vue'
 import Map from '../views/Map.vue'
-import Form from '../views/Form.vue'
+import Employees from '../views/Employees.vue'
 import Editor from '../views/Editor.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
     component: Home
   },
   {
-    path: '/map',
-    name: 'map',
+    path: '/location',
+    name: 'location',
     component: Map
   },
   {
-    path: '/form',
-    name: 'form',
-    component: Form
+    path: '/employees',
+    name: 'employees',
+    component: Employees
   },
   {
     path: '/editor',
