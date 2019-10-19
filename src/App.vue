@@ -3,7 +3,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Horizon Test</a>
+        <router-link to="/home" class="navbar-brand">Horizon Test</router-link>
         <button
           class="navbar-toggler"
           type="button"
@@ -17,17 +17,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <router-link class="nav-link" :to="{name: 'home'}">Home</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/map">Map</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/form">Form</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/editor">Editor</router-link>
+            <li
+              v-for="(link, index) in links"
+              :key="index"
+              class="nav-item"
+              :class="{active: $route.name && $route.name.indexOf(link.route) == 0}"
+            >
+              <router-link class="nav-link" :to="link.route">{{ link.title }}</router-link>
             </li>
           </ul>
         </div>
@@ -37,7 +33,7 @@
     <!-- Page Content -->
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 text-center">
+        <div class="col-lg-12">
           <router-view />
         </div>
       </div>
@@ -45,6 +41,31 @@
   </div>
 </template>
 
-<style lang="scss">
+<script>
+export default {
+  name: 'App',
 
-</style>
+  data() {
+    return {
+      links: [
+        {
+          title: 'Home',
+          route: 'home'
+        },
+        {
+          title: 'Location',
+          route: 'location'
+        },
+        {
+          title: 'Employees',
+          route: 'employees'
+        },
+        {
+          title: 'Editor',
+          route: 'editor'
+        }
+      ]
+    }
+  }
+}
+</script>
