@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>This is the editor page</p>
+    <h1 class="my-4">Editor</h1>
     <code-editor />  
   </div>
 </template>
