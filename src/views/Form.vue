@@ -112,6 +112,6 @@ firebase.initializeApp({
 let db = firebase.firestore()
 
 export default {
-  name: 'form'
+  name: 'Form'
 }
 </script>
